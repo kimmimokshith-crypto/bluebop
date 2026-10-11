@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>The Bluebop Cafe & Bar | Khar West, Mumbai</title>
+  <meta name="description" content="Discover The Bluebop Cafe & Bar in Khar West, Mumbai. A premium dining experience spanning Italian, Mexican, Continental, American-inspired favorites, wood-fired pizzas, desserts, and craft beverages.">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "The Bluebop Cafe & Bar",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "318, Ground Floor, Satyam Building, Linking Road, Khar",
+      "addressLocality": "Mumbai",
+      "addressRegion": "Maharashtra",
+      "postalCode": "400052",
+      "addressCountry": "IN"
+    },
+    "telephone": "+918047483415",
+    "servesCuisine": [
+      "Italian",
+      "Pizza",
+      "Pasta",
+      "Mexican",
+      "Continental",
+      "American",
+      "Desserts",
+      "Beverages"
+    ],
+    "priceRange": "₹₹₹ (approx. ₹3,000 for two)",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.6",
+      "reviewCount": "1200",
+      "bestRating": "5"
+    }
+  }
+  </script>
+
+  <!-- Tailwind CSS via CDN for rapid utility classes -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'midnight-blue': '#0B1825',
+            'navy': '#142D42',
+            'warm-ivory': '#F5F0E8',
+            'champagne': '#D7C4A0',
+            'muted-steel': '#7F9DAF',
+            'charcoal': '#17191B'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="bg-midnight-blue text-warm-ivory selection:bg-champagne selection:text-midnight-blue">
+
+  <!-- ========================================================================
+       1. STICKY DYNAMIC NAVIGATION BAR
+       ======================================================================== -->
+  <header id="main-navbar" class="navbar navbar-top flex items-center justify-between">
+    <!-- Brand Wordmark -->
+    <a href="#hero" class="flex flex-col group text-left">
+      <span class="font-serif-display text-xl sm:text-2xl tracking-[0.14em] text-warm-ivory group-hover:text-champagne transition-colors duration-300">THE BLUEBOP</span>
+      <span class="text-[0.6rem] tracking-[0.25em] text-champagne uppercase -mt-1">Cafe & Bar • Khar Mumbai</span>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden lg:flex items-center gap-8" aria-label="Main Navigation">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#menu" class="nav-link">Menu</a>
+      <a href="#gallery" class="nav-link">Atmosphere</a>
+      <a href="#location" class="nav-link">Location</a>
+      <a href="#reserve" class="nav-link text-champagne">Reserve</a>
+    </nav>
+
+    <!-- Header Actions (Audio Ambiance & CTA) -->
+    <div class="hidden sm:flex items-center gap-3 sm:gap-4">
+      <!-- Ambient Jazz Soundscape Toggle -->
+      <button id="audio-ambiance-toggle" class="audio-toggle-btn audio-ambiance-toggle-btn" title="Toggle Bluebop Jazz Lounge Ambiance" aria-label="Toggle Jazz Lounge Ambiance" aria-pressed="false">
+        <span class="audio-bars-wrapper">
+          <span class="audio-bar"></span>
+          <span class="audio-bar"></span>
+          <span class="audio-bar"></span>
+          <span class="audio-bar"></span>
+        </span>
+        <span class="hidden md:inline">The Bluebop Vibe</span>
+      </button>
+
+      <!-- Primary Reserve CTA -->
+      <a href="#reserve" class="btn-primary">Book a Table</a>
+    </div>
+
+    <!-- Mobile / Tablet Hamburger Toggle -->
+    <button id="mobile-menu-toggle" class="lg:hidden hamburger-btn ml-2" aria-label="Open Navigation Menu" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </header>
+
+  <!-- Mobile Drawer Backdrop Overlay -->
+  <div id="mobile-menu-backdrop" class="mobile-menu-backdrop" aria-hidden="true"></div>
+
+  <!-- Mobile Navigation Drawer -->
+  <aside id="mobile-menu-drawer" class="mobile-nav-drawer lg:hidden" aria-label="Mobile Navigation">
+    <div>
+      <div class="flex items-center justify-between mb-8 pb-4 border-b border-champagne/15">
+        <div>
+          <span class="font-serif-display text-2xl tracking-[0.15em] text-warm-ivory block">THE BLUEBOP</span>
+          <span class="text-xs tracking-[0.2em] text-champagne uppercase">Cafe & Bar • Khar West</span>
+        </div>
+        <button id="mobile-menu-close" class="text-champagne p-2 hover:text-warm-ivory transition-colors" aria-label="Close Navigation Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Jazz Ambiance Toggle -->
+      <button class="audio-toggle-btn audio-ambiance-toggle-btn w-full justify-center mb-6 py-2.5" title="Toggle Bluebop Jazz Lounge Ambiance" aria-label="Toggle Jazz Lounge Ambiance" aria-pressed="false">
+        <span class="audio-bars-wrapper">
+          <span class="audio-bar"></span>
+          <span class="audio-bar"></span>
+          <span class="audio-bar"></span>
+          <span class="audio-bar"></span>
+        </span>
+        <span>The Bluebop Vibe (Jazz Lounge)</span>
+      </button>
+
+      <ul class="mobile-nav-list">
+        <li><a href="#hero" class="mobile-nav-link">Home</a></li>
+        <li><a href="#about" class="mobile-nav-link">About The Café</a></li>
+        <li><a href="#experience" class="mobile-nav-link">Dining Experience</a></li>
+        <li><a href="#menu" class="mobile-nav-link">Signature Menu</a></li>
+        <li><a href="#gallery" class="mobile-nav-link">Atmosphere</a></li>
+        <li><a href="#location" class="mobile-nav-link">Location & Map</a></li>
+        <li><a href="#reserve" class="mobile-nav-link text-champagne">Table Reservation</a></li>
+      </ul>
+    </div>
+
+    <div class="pt-6 border-t border-champagne/20">
+      <div class="text-xs text-muted-steel mb-3">Linking Road, Khar West, Mumbai</div>
+      <a href="tel:+918047483415" class="btn-primary w-full text-center block mb-3">CALL +91 8047483415</a>
+      <a href="#reserve" class="btn-secondary w-full text-center block">RESERVE A TABLE</a>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       2. HERO / LANDING SECTION
+       ======================================================================== -->
+  <section id="hero" class="hero-section">
+    <!-- Cinematic Atmosphere Background Media -->
+    <img src="assets/images/hero/hero-interior.jpg" alt="The Bluebop Cafe & Bar Interior Evening Atmosphere" class="hero-bg-media">
+    <div class="hero-overlay"></div>
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span>KHAR WEST, MUMBAI</span>
+      </div>
+
+      <h1 class="hero-title font-serif-display">
+        THE BLUEBOP
+      </h1>
+
+      <h2 class="hero-subtitle">
+        A TASTE OF THE CITY, SERVED WITH CHARACTER.
+      </h2>
+
+      <p class="hero-body">
+        Discover a dining experience in the heart of Khar, Mumbai, with a menu spanning Italian, Mexican, Continental, American-inspired favourites, desserts, and beverages.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#menu" class="btn-primary w-full sm:w-auto">EXPLORE THE MENU</a>
+        <a href="#location" class="btn-secondary w-full sm:w-auto">VISIT THE CAFE</a>
+      </div>
+
+      <!-- Key Verified Snapshot Badges -->
+      <div class="mt-12 inline-flex flex-wrap items-center justify-center gap-6 text-xs tracking-wider text-muted-steel/90 border-t border-champagne/15 pt-6">
+        <div class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-champagne"></span>
+          <span>Satyam Building, Linking Road</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-champagne"></span>
+          <span>Approx. ₹3,000 for two</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-champagne"></span>
+          <span>4.6 Dining Rating on Zomato</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Down Indicator -->
+    <div class="scroll-indicator" aria-hidden="true">
+      <span>SCROLL TO DISCOVER</span>
+      <div class="scroll-indicator-line"></div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3. KEY CENTERPIECE — SCROLL-DRIVEN INTERACTIVE VIDEO
+       Strictly scroll-progress linked: Pauses when not scrolling, advances on
+       scroll down, reverses on scroll up.
+       ======================================================================== -->
+  <section id="scroll-video-section" class="scroll-video-container" aria-label="Interactive Café Journey">
+    <div id="video-sticky-stage" class="sticky-video-stage">
+      <!-- HTML5 Interactive Video Scrub Element -->
+      <video
+        id="bluebop-interactive-video"
+        class="scrub-video-element"
+        src="assets/video/bluebop-scroll-cinematic.mp4"
+        poster="assets/video/poster.jpg"
+        preload="metadata"
+        muted
+        playsinline
+        aria-hidden="true"
+      ></video>
+
+      <!-- Canvas Fallback for Mobile / Low-Power / Fallback Frame Sequences -->
+      <canvas id="bluebop-fallback-canvas" class="scrub-canvas-fallback" aria-hidden="true"></canvas>
+
+      <!-- Vignette and Lighting Gradient -->
+      <div class="video-stage-vignette"></div>
+
+      <!-- Scrub Hint Prompt (Fades as soon as user begins scrolling) -->
+      <div id="video-scrub-hint" class="scrub-hint">
+        <div class="scrub-hint-inner">
+          <span class="scrub-hint-sub">Cinematic Exploration</span>
+          <h3 class="scrub-hint-title">SCROLL TO STEP INSIDE</h3>
+          <div class="flex items-center gap-2 text-champagne text-xs tracking-widest uppercase">
+            <span>Scroll Down to Advance</span>
+            <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- HUD Overlay (Live progress bar + story chapter indicators) -->
+      <div class="video-hud-overlay">
+        <!-- Top HUD Row -->
+        <div class="video-hud-top">
+          <div class="video-hud-badge">
+            <span class="scrub-live-dot"></span>
+            <span>SCROLL-CONTROLLED CINEMA</span>
+          </div>
+
+          <div class="video-progress-tracker">
+            <span id="video-progress-text" class="video-progress-text">0% EXPLORED</span>
+            <div class="video-progress-track">
+              <div id="video-progress-fill" class="video-progress-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop Narrative Milestones (The 5 Scroll Chapters) -->
+        <div class="story-milestones-container" role="tablist">
+          <!-- Chapter 1 -->
+          <div class="story-milestone active-milestone" data-stage="0">
+            <div class="milestone-num">CHAPTER 01</div>
+            <div class="milestone-title">The Khar Arrival</div>
+            <div class="text-[0.7rem] text-muted-steel mt-1">Satyam Building, Linking Road</div>
+          </div>
+
+          <!-- Chapter 2 -->
+          <div class="story-milestone" data-stage="1">
+            <div class="milestone-num">CHAPTER 02</div>
+            <div class="milestone-title">The Ambient Threshold</div>
+            <div class="text-[0.7rem] text-muted-steel mt-1">Warm glow & jazz-inspired charm</div>
+          </div>
+
+          <!-- Chapter 3 -->
+          <div class="story-milestone" data-stage="2">
+            <div class="milestone-num">CHAPTER 03</div>
+            <div class="milestone-title">The Bar & Bistro</div>
+            <div class="text-[0.7rem] text-muted-steel mt-1">Spirits, mocktails & character</div>
+          </div>
+
+          <!-- Chapter 4 -->
+          <div class="story-milestone" data-stage="3">
+            <div class="milestone-num">CHAPTER 04</div>
+            <div class="milestone-title">Culinary Passion</div>
+            <div class="text-[0.7rem] text-muted-steel mt-1">Artisan pizzas & truffle pastas</div>
+          </div>
+
+          <!-- Chapter 5 -->
+          <div class="story-milestone" data-stage="4">
+            <div class="milestone-num">CHAPTER 05</div>
+            <div class="milestone-title">The Bluebop Moment</div>
+            <div class="text-[0.7rem] text-muted-steel mt-1">Desserts & evening conviviality</div>
+          </div>
+        </div>
+
+        <!-- Mobile & Tablet Dynamic Stage Display -->
+        <div id="mobile-milestone-display" class="mobile-milestone-display">
+          <div class="flex items-center justify-between mb-1.5">
+            <span id="mobile-milestone-badge" class="text-[0.68rem] text-champagne font-bold tracking-widest uppercase">CHAPTER 01 OF 05</span>
+            <span id="mobile-milestone-progress" class="text-[0.68rem] text-champagne font-mono font-bold">0%</span>
+          </div>
+          <h4 id="mobile-milestone-title" class="font-serif text-lg sm:text-xl text-warm-ivory font-medium leading-tight">The Khar Arrival</h4>
+          <p id="mobile-milestone-desc" class="text-xs text-muted-steel mt-0.5">Satyam Building, Linking Road</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4. ABOUT THE CAFE SECTION (Split Editorial Layout)
+       ======================================================================== -->
+  <section id="about" class="about-section">
+    <div class="about-grid">
+      <!-- Left Editorial Image Still -->
+      <div class="about-image-frame">
+        <img src="assets/images/atmosphere/about-still.jpg" alt="Interior Seating and Atmosphere of The Bluebop Cafe" class="about-img">
+      </div>
+
+      <!-- Right Editorial Content -->
+      <div class="about-content">
+        <span class="section-tag">THE ESSENCE</span>
+        <h2 class="section-title font-serif-display mb-6">
+          MORE THAN A MEAL. A MOMENT IN MUMBAI.
+        </h2>
+
+        <p class="text-warm-ivory/85 text-base leading-relaxed mb-6 font-light">
+          Situated on Linking Road in Khar West, <strong>The Bluebop Cafe & Bar</strong> presents a contemporary dining destination built for unhurried conversations, shared plates, and evening leisure.
+        </p>
+
+        <p class="text-muted-steel text-sm leading-relaxed mb-8">
+          The culinary program bridges beloved Italian classics, hand-stretched wood-fired pizzas, hearty American bistro favorites, and refreshing craft beverages. Designed with an appreciation for warm textures, rich blues, and soulful rhythm, every table invites you to slow down and enjoy the city's character.
+        </p>
+
+        <!-- Verified Details Row -->
+        <div class="details-row">
+          <div>
+            <div class="detail-item-label">Location</div>
+            <div class="detail-item-value">Khar West, Mumbai</div>
+          </div>
+          <div>
+            <div class="detail-item-label">Cuisine Spectrum</div>
+            <div class="detail-item-value">Italian, Continental & Mexican</div>
+          </div>
+          <div>
+            <div class="detail-item-label">Dining Experience</div>
+            <div class="detail-item-value">All-Day Dining & Bar Offering</div>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <a href="#menu" class="btn-secondary">DISCOVER THE TASTES</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5. DINING EXPERIENCE SECTION (Atmosphere Grid)
+       ======================================================================== -->
+  <section id="experience" class="experience-section">
+    <div class="max-w-6xl mx-auto text-center">
+      <span class="section-tag">IMPRESSIONS</span>
+      <h2 class="section-title font-serif-display">Atmosphere in Every Detail</h2>
+      <p class="text-muted-steel text-sm max-w-xl mx-auto mt-3">
+        A visual journey through the spaces, artisan finishes, curated drinks, and moments that define The Bluebop dining experience.
+      </p>
+    </div>
+
+    <div class="experience-grid">
+      <!-- 01: THE SPACE -->
+      <article class="exp-card">
+        <img src="assets/images/atmosphere/the-space.jpg" alt="The Space at The Bluebop Cafe" class="exp-card-img" loading="lazy">
+        <div class="exp-card-overlay">
+          <span class="exp-card-tag">ARCHITECTURAL HARMONY</span>
+          <h3 class="exp-card-title">THE SPACE</h3>
+          <p class="exp-card-desc">Warm pendant lighting, intimate seating, and deep midnight tones created for comfort.</p>
+        </div>
+      </article>
+
+      <!-- 02: THE DETAILS -->
+      <article class="exp-card">
+        <img src="assets/images/atmosphere/the-details.jpg" alt="Cocktails and bar details" class="exp-card-img" loading="lazy">
+        <div class="exp-card-overlay">
+          <span class="exp-card-tag">BARCRAFT & AMBIANCE</span>
+          <h3 class="exp-card-title">THE DETAILS</h3>
+          <p class="exp-card-desc">Backlit brass shelving, botanical infusions, and glassware crafted for evening toasts.</p>
+        </div>
+      </article>
+
+      <!-- 03: THE TABLE -->
+      <article class="exp-card">
+        <img src="assets/images/atmosphere/the-table.jpg" alt="Dining table spread" class="exp-card-img" loading="lazy">
+        <div class="exp-card-overlay">
+          <span class="exp-card-tag">SHARING & FLAVOUR</span>
+          <h3 class="exp-card-title">THE TABLE</h3>
+          <p class="exp-card-desc">Platters of hand-tossed sourdough pizza, fresh pasta bowls, and colorful appetizers.</p>
+        </div>
+      </article>
+
+      <!-- 04: THE MOMENT -->
+      <article class="exp-card">
+        <img src="assets/images/atmosphere/the-moment.jpg" alt="Evening conviviality and celebrations" class="exp-card-img" loading="lazy">
+        <div class="exp-card-overlay">
+          <span class="exp-card-tag">MUMBAI EVENINGS</span>
+          <h3 class="exp-card-title">THE MOMENT</h3>
+          <p class="exp-card-desc">Lively conversations, jazz rhythms, and warm hospitality that lingers long after dinner.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6. SIGNATURE MENU SHOWCASE
+       ======================================================================== -->
+  <section id="menu" class="menu-section">
+    <div class="max-w-5xl mx-auto text-center">
+      <span class="section-tag">CURATIONS</span>
+      <h2 class="section-title font-serif-display">The Signature Menu</h2>
+      <p class="text-muted-steel text-sm max-w-2xl mx-auto mt-3">
+        Explore publicly celebrated selections from Italian stone-baked pizzas to truffle risotto, handcrafted burgers, and botanical coolers.
+      </p>
+
+      <!-- Indicative Dining Price Badge -->
+      <div class="inline-flex items-center gap-2 mt-4 px-4 py-1.5 rounded bg-midnight-blue/70 border border-champagne/20 text-xs text-champagne/90">
+        <span class="w-2 h-2 rounded-full bg-champagne"></span>
+        <span>Approx. ₹3,000 for two people (excluding alcohol, per Zomato listing)</span>
+      </div>
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div id="menu-category-tabs" class="menu-tabs-wrapper" role="tablist">
+      <!-- Injected dynamically by menu-ui.js -->
+    </div>
+
+    <!-- Dish Cards Grid -->
+    <div id="menu-items-grid" class="menu-grid">
+      <!-- Injected dynamically by menu-ui.js -->
+    </div>
+
+    <!-- Full Menu CTA -->
+    <div class="text-center mt-12">
+      <button id="btn-open-full-menu" class="btn-primary">VIEW COMPLETE MENU</button>
+      <p class="text-[0.72rem] text-muted-steel mt-3">
+        * Menu items, seasonal availability, and pricing are subject to direct café confirmation.
+      </p>
+    </div>
+
+    <!-- Desktop Floating Image Hover Preview Container -->
+    <div id="menu-floating-preview" class="menu-floating-preview" aria-hidden="true">
+      <img id="menu-floating-img" src="" alt="Dish Preview">
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7. ATMOSPHERE & GALLERY SECTION
+       ======================================================================== -->
+  <section id="gallery" class="py-24 px-6 bg-midnight-blue border-t border-champagne/10">
+    <div class="max-w-6xl mx-auto text-center mb-16">
+      <span class="section-tag">ATMOSPHERE</span>
+      <h2 class="section-title font-serif-display">A Glimpse into Khar Nights</h2>
+      <p class="text-muted-steel text-sm max-w-xl mx-auto mt-3">
+        Step into the warm cadence of The Bluebop Cafe & Bar, where contemporary bistro aesthetics meet the energy of Mumbai's western suburbs.
+      </p>
+    </div>
+
+    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="overflow-hidden rounded border border-champagne/15 group relative aspect-[4/3]">
+        <img src="assets/images/hero/hero-bar.jpg" alt="The Bluebop Bar Counter" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-midnight-blue/90 via-transparent to-transparent flex items-end p-6">
+          <div>
+            <span class="text-[0.65rem] tracking-widest text-champagne uppercase block">THE BAR</span>
+            <h4 class="font-serif text-lg text-warm-ivory">Craft Cocktails & Spirits</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="overflow-hidden rounded border border-champagne/15 group relative aspect-[4/3]">
+        <img src="assets/images/dishes/margherita-pizza.jpg" alt="Artisan Wood-Fired Margherita" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-midnight-blue/90 via-transparent to-transparent flex items-end p-6">
+          <div>
+            <span class="text-[0.65rem] tracking-widest text-champagne uppercase block">CULINARY</span>
+            <h4 class="font-serif text-lg text-warm-ivory">Stone-Baked Classics</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="overflow-hidden rounded border border-champagne/15 group relative aspect-[4/3]">
+        <img src="assets/images/atmosphere/the-details.jpg" alt="Intimate Dining Ambience" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-midnight-blue/90 via-transparent to-transparent flex items-end p-6">
+          <div>
+            <span class="text-[0.65rem] tracking-widest text-champagne uppercase block">AMBIANCE</span>
+            <h4 class="font-serif text-lg text-warm-ivory">Golden Evening Hues</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8. LOCATION & CONTACT SECTION
+       ======================================================================== -->
+  <section id="location" class="location-section">
+    <div class="max-w-6xl mx-auto text-center">
+      <span class="section-tag">DESTINATION</span>
+      <h2 class="section-title font-serif-display">Finding The Bluebop</h2>
+      <p class="text-muted-steel text-sm max-w-xl mx-auto mt-3">
+        Centrally located in Khar West along the iconic Linking Road shopping and cultural corridor.
+      </p>
+    </div>
+
+    <div class="location-grid">
+      <!-- Address & Contact Info Card -->
+      <div class="location-card flex flex-col justify-between">
+        <div>
+          <span class="text-xs tracking-[0.2em] text-champagne uppercase block mb-2">THE LOCATION</span>
+          <h3 class="font-serif text-2xl sm:text-3xl text-warm-ivory mb-4">The Bluebop Cafe & Bar</h3>
+
+          <div class="space-y-4 text-sm text-warm-ivory/80 leading-relaxed mb-8">
+            <p class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-champagne flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              <span>
+                <strong>318, Ground Floor, Satyam Building</strong>,<br>
+                Linking Road, Khar West, Mumbai,<br>
+                Maharashtra 400052, India.
+              </span>
+            </p>
+
+            <p class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-champagne flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+              </svg>
+              <span>
+                Listed Number: <strong class="text-champagne font-mono text-base">+91 8047483415</strong>
+              </span>
+            </p>
+          </div>
+
+          <!-- Configurable Rating Display -->
+          <div class="mb-6 p-4 rounded bg-midnight-blue/60 border border-champagne/15">
+            <span class="text-[0.65rem] text-muted-steel uppercase tracking-widest block mb-1">DINING RATING</span>
+            <div id="configurable-rating-display">
+              <!-- Rendered by app.js -->
+            </div>
+          </div>
+
+          <!-- Configurable Opening Hours -->
+          <div class="mb-8">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs text-champagne uppercase tracking-wider font-semibold">HOURS OF SERVICE</span>
+              <span class="text-[0.65rem] text-muted-steel uppercase">*Subject to verification</span>
+            </div>
+            <div id="configurable-hours-list" class="space-y-1">
+              <!-- Rendered by app.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Location Action Buttons -->
+        <div class="flex flex-wrap gap-3 pt-6 border-t border-champagne/15">
+          <a href="https://maps.google.com/?q=The+Bluebop+Cafe+Satyam+Building+Linking+Road+Khar+Mumbai" target="_blank" rel="noopener noreferrer" class="btn-primary flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+            </svg>
+            GET DIRECTIONS
+          </a>
+
+          <a href="tel:+918047483415" class="btn-secondary flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+            CALL THE CAFE
+          </a>
+
+          <a href="https://www.zomato.com/mumbai/the-bluebop-cafe-khar" target="_blank" rel="noopener noreferrer" class="btn-secondary flex items-center gap-2">
+            ORDER ONLINE (ZOMATO)
+          </a>
+        </div>
+      </div>
+
+      <!-- Styled Interactive Google Map Embed -->
+      <div class="map-container relative">
+        <iframe
+          title="The Bluebop Cafe Location Map Khar Mumbai"
+          src="https://maps.google.com/maps?q=318+Satyam+Building+Linking+Road+Khar+Mumbai+400052&t=&z=16&ie=UTF8&iwloc=&output=embed"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       9. RESERVATION CALL TO ACTION SECTION
+       ======================================================================== -->
+  <section id="reserve" class="reservation-section">
+    <div class="reservation-container">
+      <span class="section-tag">HOSPITALITY</span>
+      <h2 class="section-title font-serif-display text-3xl sm:text-5xl mb-4">YOUR NEXT TABLE AWAITS.</h2>
+      <p class="text-warm-ivory/80 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+        Plan your next visit to The Bluebop Cafe. Explore the menu and contact the café for table reservations and availability.
+      </p>
+
+      <!-- Table Reservation Enquiry Form -->
+      <form id="table-reservation-form" class="reservation-form">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div class="form-group">
+            <label for="res-name">Your Full Name *</label>
+            <input type="text" id="res-name" class="form-input" placeholder="e.g. Arjun Mehta" required>
+          </div>
+          <div class="form-group">
+            <label for="res-phone">Phone Number *</label>
+            <input type="tel" id="res-phone" class="form-input" placeholder="+91 98200 00000" required>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+          <div class="form-group">
+            <label for="res-date">Dining Date *</label>
+            <input type="date" id="res-date" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label for="res-time">Time Slot *</label>
+            <select id="res-time" class="form-select" required>
+              <option value="12:30 PM">12:30 PM (Lunch)</option>
+              <option value="01:30 PM">01:30 PM (Lunch)</option>
+              <option value="03:00 PM">03:00 PM (Afternoon Tea / Coffee)</option>
+              <option value="07:00 PM" selected>07:00 PM (Early Dinner)</option>
+              <option value="08:30 PM">08:30 PM (Prime Dinner)</option>
+              <option value="10:00 PM">10:00 PM (Late Supper)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="res-guests">Number of Guests</label>
+            <select id="res-guests" class="form-select">
+              <option value="1">1 Guest</option>
+              <option value="2" selected>2 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="6">6 Guests</option>
+              <option value="8+">8+ Guests (Group Gathering)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div class="form-group">
+            <label for="res-seating">Seating Preference</label>
+            <select id="res-seating" class="form-select">
+              <option value="Main Dining Room">Main Dining Room</option>
+              <option value="Jazz Bar Counter">Jazz Bar Counter</option>
+              <option value="Quiet Alcove">Quiet Alcove / Corner</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="res-notes">Special Occasion or Notes</label>
+            <input type="text" id="res-notes" class="form-input" placeholder="e.g. Birthday, Anniversary, Dietary request">
+          </div>
+        </div>
+
+        <div class="p-3 bg-midnight-blue/80 border border-champagne/15 rounded text-xs text-muted-steel mb-6 leading-relaxed">
+          <strong>Note:</strong> Requests are logged directly with café hosts. To guarantee seating for immediate arrival tonight, call <strong class="text-champagne font-mono">+91 8047483415</strong>.
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <button type="submit" class="btn-primary w-full sm:w-auto">SUBMIT RESERVATION REQUEST</button>
+          <a href="tel:+918047483415" class="text-xs tracking-wider text-champagne underline hover:text-warm-ivory transition-colors">
+            Or call directly: +91 8047483415
+          </a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       10. FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <!-- Column 1: Brand Wordmark & Ethos -->
+      <div>
+        <a href="#hero" class="footer-logo">THE BLUEBOP</a>
+        <p class="text-xs text-muted-steel leading-relaxed mb-4 max-w-sm">
+          The Bluebop Cafe & Bar is a modern hospitality destination in Khar West, Mumbai. Celebrating rich multi-cuisine dining, Italian stone-baked sourdough pizzas, artisan pasta, and evening vibes.
+        </p>
+        <div class="text-[0.68rem] text-champagne/80 font-mono">
+          Approx. ₹3,000 for two people (indicative, per public listing)
+        </div>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div>
+        <div class="text-xs font-semibold text-champagne uppercase tracking-widest mb-4">EXPLORE</div>
+        <ul class="footer-links-list">
+          <li><a href="#about" class="footer-link">About the Cafe</a></li>
+          <li><a href="#experience" class="footer-link">Dining Impressions</a></li>
+          <li><a href="#menu" class="footer-link">Signature Menu</a></li>
+          <li><a href="#gallery" class="footer-link">Atmosphere Gallery</a></li>
+          <li><a href="#location" class="footer-link">Location & Directions</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Contact & Address -->
+      <div>
+        <div class="text-xs font-semibold text-champagne uppercase tracking-widest mb-4">VISIT</div>
+        <address class="not-italic text-xs text-muted-steel space-y-2 leading-relaxed">
+          <p>318, Ground Floor, Satyam Building,</p>
+          <p>Linking Road, Khar West,</p>
+          <p>Mumbai, Maharashtra 400052.</p>
+          <p class="pt-2 text-champagne font-mono">+91 8047483415</p>
+        </address>
+      </div>
+
+      <!-- Column 4: Delivery & Reservations -->
+      <div>
+        <div class="text-xs font-semibold text-champagne uppercase tracking-widest mb-4">SERVICES</div>
+        <ul class="footer-links-list">
+          <li><a href="#reserve" class="footer-link">Table Reservations</a></li>
+          <li><a href="https://www.zomato.com/mumbai/the-bluebop-cafe-khar" target="_blank" rel="noopener noreferrer" class="footer-link">Zomato Listing</a></li>
+          <li><a href="https://www.swiggy.com" target="_blank" rel="noopener noreferrer" class="footer-link">Swiggy Delivery</a></li>
+          <li><a href="#" id="link-privacy-policy" class="footer-link">Privacy Policy</a></li>
+          <li><a href="#" id="link-terms-conditions" class="footer-link">Terms & Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <div>
+        © 2026 The Bluebop Cafe & Bar. All rights reserved. Khar West, Mumbai.
+      </div>
+      <div class="text-muted-steel/70 text-[0.68rem]">
+        Verified public listings • Linking Road, Khar
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       MODALS
+       ======================================================================== -->
+  <!-- 1. Full Menu Modal Drawer -->
+  <div id="full-menu-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-menu-title">
+    <div class="modal-dialog">
+      <button id="btn-close-full-menu" class="modal-close-btn" aria-label="Close Menu Modal">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <div class="mb-6 pb-4 border-b border-champagne/20">
+        <span class="text-xs text-champagne uppercase tracking-widest block mb-1">THE BLUEBOP CAFE & BAR</span>
+        <h2 id="modal-menu-title" class="font-serif-display text-2xl sm:text-3xl text-warm-ivory">Full Curated Menu</h2>
+        <p class="text-xs text-muted-steel mt-1">All prices in Indian Rupees (₹). Subject to government taxes and applicable restaurant charges.</p>
+      </div>
+      <div id="modal-menu-list">
+        <!-- Rendered by menu-ui.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Reservation Confirmation Status Modal -->
+  <div id="reservation-status-modal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-dialog max-w-md">
+      <button id="close-reservation-modal" class="modal-close-btn" aria-label="Close Reservation Dialog">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <div id="reservation-status-details">
+        <!-- Injected by reservation.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Privacy & Terms Modal -->
+  <div id="legal-info-modal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-dialog max-w-lg">
+      <button id="close-legal-modal" class="modal-close-btn" aria-label="Close Dialog">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <h3 id="legal-modal-title" class="font-serif text-2xl text-warm-ivory mb-4 pb-2 border-b border-champagne/20"></h3>
+      <div id="legal-modal-body" class="text-sm text-warm-ivory/80 leading-relaxed"></div>
+    </div>
+  </div>
+
+  <!-- Scripts in dependency order -->
+  <script src="js/menu-data.js"></script>
+  <script src="js/scroll-video.js"></script>
+  <script src="js/menu-ui.js"></script>
+  <script src="js/reservation.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
